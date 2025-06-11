@@ -214,10 +214,10 @@ export default function Contact() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8 }}
           >
-            Have a question or want to work together? I'd love to hear from you!
+            Have a question or want to work together? I would love to hear from you!
             ✨
             <br />
-            Fill out the form below and I'll get back to you as soon as
+            Fill out the form below and I will get back to you as soon as
             possible.
           </motion.p>
         </motion.div>
@@ -538,7 +538,7 @@ export default function Contact() {
                         Message Sent!
                       </h3>
                       <p className="text-gray-600">
-                        Thank you for reaching out! I'll get back to you as soon
+                        Thank you for reaching out! I will get back to you as soon
                         as possible.
                       </p>
                       <motion.div

@@ -148,7 +148,7 @@ export default function Hero() {
             </motion.div>
 
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-              I'm{" "}
+              I am{" "}
               <motion.span
                 className="relative inline-block"
                 whileHover={{ scale: 1.05 }}
@@ -202,7 +202,7 @@ export default function Hero() {
               <span className="font-semibold text-gray-800">
                 Welcome to my digital world!
               </span>{" "}
-              ✨ I'm a dedicated developer who loves crafting beautiful,
+              ✨ I am a dedicated developer who loves crafting beautiful,
               user-friendly applications. From{" "}
               <span className="text-blue-600 font-medium">
                 Ecommerce platforms
@@ -259,7 +259,7 @@ export default function Hero() {
                 whileTap={{ scale: 0.95 }}
               >
                 <span className="relative z-10 flex items-center justify-center">
-                  <span>Let's Chat</span>
+                  <span>Let Chat</span>
                   <motion.span
                     className="ml-2"
                     animate={{ rotate: [0, 15] }}

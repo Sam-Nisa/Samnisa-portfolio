@@ -129,7 +129,7 @@ export default function Footer() {
 
               <p className="text-gray-300 mb-6 leading-relaxed max-w-md">
                 Passionate about creating beautiful, functional, and
-                user-friendly applications. Let's build something amazing
+                user-friendly applications. Let is build something amazing
                 together! ✨
               </p>
 

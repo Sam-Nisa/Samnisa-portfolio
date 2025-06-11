@@ -12,6 +12,43 @@ import {
   Heart,
   Zap,
 } from "lucide-react";
+import { ElementType } from "react";
+
+type SoftSkill = {
+  name: string;
+  proficiency: string;
+  icon: ElementType;
+  color: string;
+  emoji: string;
+  description: string;
+};
+
+type ProgrammingSkill = {
+  name: string;
+  proficiency: string;
+  icon: ElementType;
+  color: string;
+  emoji: string;
+  level: number;
+};
+
+type DesignSkill = {
+  name: string;
+  proficiency: string;
+  icon: ElementType;
+  color: string;
+  emoji: string;
+  tools: string[];
+  level: number;
+};
+
+type Skill = SoftSkill | ProgrammingSkill | DesignSkill;
+
+interface SkillCardProps {
+  skill: Skill;
+  index: number;
+  showProgress?: boolean;
+}
 
 const Skills = () => {
   const skillsData = {
@@ -40,7 +77,7 @@ const Skills = () => {
         emoji: "🤝",
         description: "Collaborative and supportive team player",
       },
-    ],
+    ] as SoftSkill[],
     programmingSkills: [
       {
         name: "C++",
@@ -90,7 +127,7 @@ const Skills = () => {
         emoji: "🎨",
         level: 90,
       },
-    ],
+    ] as ProgrammingSkill[],
     designSkills: [
       {
         name: "UX/UI Design",
@@ -110,7 +147,7 @@ const Skills = () => {
         tools: ["Adobe Photoshop", "Illustrator"],
         level: 70,
       },
-    ],
+    ] as DesignSkill[],
   };
 
   const floatingElements = [
@@ -120,7 +157,11 @@ const Skills = () => {
     { Icon: Zap, delay: 1.5, x: 85, y: 85, color: "text-blue-400" },
   ];
 
-  const SkillCard = ({ skill, index, showProgress = false }: any) => (
+  const SkillCard = ({
+    skill,
+    index,
+    showProgress = false,
+  }: SkillCardProps) => (
     <motion.div
       className="group relative"
       initial={{ opacity: 0, y: 50, scale: 0.9 }}
@@ -130,12 +171,10 @@ const Skills = () => {
       whileHover={{ y: -5 }}
     >
       <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-white/20 overflow-hidden relative p-6">
-        {/* Top Gradient Bar */}
         <div
           className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${skill.color}`}
         />
 
-        {/* Header with Icon */}
         <div className="flex items-center space-x-4 mb-4">
           <motion.div
             className={`p-3 rounded-xl bg-gradient-to-r ${skill.color} text-white shadow-md`}
@@ -157,18 +196,17 @@ const Skills = () => {
           <span className="text-2xl">{skill.emoji}</span>
         </div>
 
-        {/* Description or Tools */}
-        {skill.description && (
+        {"description" in skill && (
           <p className="text-gray-600 text-sm mb-4">{skill.description}</p>
         )}
 
-        {skill.tools && (
+        {"tools" in skill && (
           <div className="mb-4">
             <span className="text-sm font-medium text-gray-500 mb-2 block">
               Tools
             </span>
             <div className="flex flex-wrap gap-2">
-              {skill.tools.map((tool: string, toolIndex: number) => (
+              {skill.tools.map((tool, toolIndex) => (
                 <motion.span
                   key={toolIndex}
                   className="px-2 py-1 bg-gray-100 text-gray-700 rounded-lg text-xs font-medium"
@@ -181,8 +219,7 @@ const Skills = () => {
           </div>
         )}
 
-        {/* Progress Bar */}
-        {showProgress && skill.level && (
+        {"level" in skill && showProgress && (
           <div className="mb-4">
             <div className="flex justify-between items-center mb-2">
               <span className="text-sm font-medium text-gray-600">
@@ -204,15 +241,10 @@ const Skills = () => {
           </div>
         )}
 
-        {/* Decorative Corner */}
         <motion.div
           className="absolute bottom-2 right-2"
           animate={{ rotate: [0, 360] }}
-          transition={{
-            duration: 8,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "linear",
-          }}
+          transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
         >
           <Sparkles className="w-3 h-3 text-purple-400 opacity-30" />
         </motion.div>
@@ -222,32 +254,22 @@ const Skills = () => {
 
   return (
     <div className="relative py-12 px-4 overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 rounded-3xl">
-      {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-10 right-10 w-40 h-40 bg-gradient-to-br from-blue-400/10 to-purple-400/10 rounded-full blur-2xl animate-pulse"></div>
         <div className="absolute bottom-10 left-10 w-40 h-40 bg-gradient-to-br from-purple-400/10 to-pink-400/10 rounded-full blur-2xl animate-pulse delay-1000"></div>
-
-        {/* Floating Decorative Elements */}
         {floatingElements.map(({ Icon, delay, x, y, color }, index) => (
           <motion.div
             key={index}
             className={`absolute ${color} opacity-20`}
-            animate={{
-              y: [0, -15],
-              rotate: [0, 10],
-              scale: [1, 1.1],
-            }}
+            animate={{ y: [0, -15], rotate: [0, 10], scale: [1, 1.1] }}
             transition={{
               duration: 3,
-              repeat: Number.POSITIVE_INFINITY,
+              repeat: Infinity,
               repeatType: "reverse",
               delay: delay,
               ease: "easeInOut",
             }}
-            style={{
-              left: `${x}%`,
-              top: `${y}%`,
-            }}
+            style={{ left: `${x}%`, top: `${y}%` }}
           >
             <Icon size={24} />
           </motion.div>
@@ -255,7 +277,6 @@ const Skills = () => {
       </div>
 
       <div className="relative max-w-6xl mx-auto">
-        {/* Enhanced Header */}
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
@@ -273,7 +294,6 @@ const Skills = () => {
               My Expertise
             </span>
           </motion.div>
-
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
             <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
               Skills
@@ -283,14 +303,13 @@ const Skills = () => {
               animate={{ rotate: [0, 15] }}
               transition={{
                 duration: 2,
-                repeat: Number.POSITIVE_INFINITY,
+                repeat: Infinity,
                 repeatType: "reverse",
               }}
             >
               ✨
             </motion.span>
           </h1>
-
           <motion.p
             className="text-gray-600 text-lg max-w-2xl mx-auto"
             initial={{ opacity: 0 }}
@@ -302,9 +321,7 @@ const Skills = () => {
           </motion.p>
         </motion.div>
 
-        {/* Skills Sections */}
         <div className="space-y-16">
-          {/* Soft Skills */}
           <section>
             <motion.h2
               className="text-3xl font-bold mb-8 text-center bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
@@ -321,7 +338,6 @@ const Skills = () => {
             </div>
           </section>
 
-          {/* Programming Skills */}
           <section>
             <motion.h2
               className="text-3xl font-bold mb-8 text-center bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent"
@@ -343,7 +359,6 @@ const Skills = () => {
             </div>
           </section>
 
-          {/* Design Skills */}
           <section>
             <motion.h2
               className="text-3xl font-bold mb-8 text-center bg-gradient-to-r from-pink-600 to-red-600 bg-clip-text text-transparent"
@@ -366,7 +381,6 @@ const Skills = () => {
           </section>
         </div>
 
-        {/* Enhanced Stats Section */}
         <motion.div
           className="flex justify-center space-x-8 mt-16"
           initial={{ opacity: 0, y: 20 }}

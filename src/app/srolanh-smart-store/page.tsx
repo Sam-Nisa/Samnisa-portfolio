@@ -1,19 +1,15 @@
-import React from 'react';
-import WaveBackground from '@/components/WaveBackground';
-import Footer from '@/components/Footer';
-import Link from 'next/link';
+import React from "react";
+import Footer from "@/components/Footer";
+import Link from "next/link";
+import Image from "next/image";
 
 const SrolanhSmartStorePage = () => {
   return (
     <div className="relative overflow-hidden">
-      {/* Wave Background */}
-      <WaveBackground />
-      {/* Main Content */}
       <div className="min-h-screen py-12 mt-10 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           {/* Back Button & Title */}
           <div className="flex flex-col w-full">
-            {/* Back Button (left-aligned) */}
             <Link href="/#experience">
               <button
                 className="relative px-6 py-2 rounded-lg text-blue-500 font-semibold transition-all duration-300 ease-in-out 
@@ -24,13 +20,12 @@ const SrolanhSmartStorePage = () => {
               </button>
             </Link>
 
-            {/* SROLANH Smart Store Title (centered) */}
             <h2 className="text-5xl font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent text-center mt-4">
               SROLANH Smart Store
             </h2>
           </div>
 
-          {/* Information Section */}
+          {/* Info Section */}
           <div className="text-gray-800 text-left mt-10">
             <p>
               <strong>Duration:</strong> December 2022 – May 2023
@@ -40,7 +35,7 @@ const SrolanhSmartStorePage = () => {
             </p>
           </div>
 
-          {/* Key Responsibilities */}
+          {/* Responsibilities */}
           <div className="mt-4 text-gray-600 space-y-2">
             <p>
               <strong>Key Responsibilities:</strong>
@@ -53,65 +48,71 @@ const SrolanhSmartStorePage = () => {
             </ul>
           </div>
 
-          {/* Additional Details */}
+          {/* Detailed Description */}
           <div className="mt-4 text-gray-600 space-y-2 text-justify">
             <p>
               <strong>Key Responsibilities:</strong>
             </p>
             <p>
               At SROLANH Smart Store, I was responsible for creating visually
-              appealing designs that aligned with the brand's identity. This
-              included designing logos, banners, social media posts, and
+              appealing designs that aligned with the brand&rsquo;s identity.
+              This included designing logos, banners, social media posts, and
               promotional materials.
             </p>
             <p>
               I worked closely with the marketing team to develop creative
-              campaigns that effectively communicated the brand's message to the
-              target audience. This required a strong understanding of design
-              principles and the ability to adapt to the brand's evolving needs.
+              campaigns that effectively communicated the brand&rsquo;s message
+              to the target audience. This required a strong understanding of
+              design principles and the ability to adapt to the brand&rsquo;s
+              evolving needs.
             </p>
             <p>
               I utilized tools like Adobe Photoshop, Illustrator, and Canva to
-              produce high-quality designs that met the company's standards and
-              resonated with customers.
+              produce high-quality designs that met the company&rsquo;s
+              standards and resonated with customers.
             </p>
           </div>
 
-          {/* Artworks Section */}
+          {/* Artworks */}
           <div className="mt-6">
             <p className="font-bold text-blue-600 text-center text-2xl">
               Artworks
             </p>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mt-4">
-              <img
+              <Image
                 src="/Project-ArtWork/Family.jpg"
                 alt="Artwork 1"
-                className="w-full h-auto object-cover rounded-lg shadow-lg transition-all duration-500 
-                           hover:scale-110 hover:rotate-3 hover:shadow-2xl hover:-translate-y-2"
+                width={500}
+                height={500}
+                className="w-full h-auto object-cover rounded-lg shadow-lg transition-all duration-500 hover:scale-110 hover:rotate-3 hover:shadow-2xl hover:-translate-y-2"
               />
-              <img
+              <Image
                 src="/Project-ArtWork/Poster chat.jpg"
                 alt="Artwork 2"
-                className="w-full h-auto object-cover rounded-lg shadow-lg transition-all duration-500 
-                           hover:scale-110 hover:-rotate-3 hover:shadow-2xl hover:-translate-y-2"
+                width={500}
+                height={500}
+                className="w-full h-auto object-cover rounded-lg shadow-lg transition-all duration-500 hover:scale-110 hover:-rotate-3 hover:shadow-2xl hover:-translate-y-2"
               />
-              <img
+              <Image
                 src="/Project-ArtWork/Knowledge.jpg"
-                alt="Artwork 1"
-                className="w-full h-auto object-cover rounded-lg shadow-lg transition-all duration-500 
-                           hover:scale-110 hover:rotate-3 hover:shadow-2xl hover:-translate-y-2"
+                alt="Artwork 3"
+                width={500}
+                height={500}
+                className="w-full h-auto object-cover rounded-lg shadow-lg transition-all duration-500 hover:scale-110 hover:rotate-3 hover:shadow-2xl hover:-translate-y-2"
               />
-              <img
+              <Image
                 src="/Project-ArtWork/Product template.jpg"
-                alt="Artwork 1"
-                className="w-full h-auto object-cover rounded-lg shadow-lg transition-all duration-500 
-                           hover:scale-110 hover:rotate-3 hover:shadow-2xl hover:-translate-y-2"
+                alt="Artwork 4"
+                width={500}
+                height={500}
+                className="w-full h-auto object-cover rounded-lg shadow-lg transition-all duration-500 hover:scale-110 hover:rotate-3 hover:shadow-2xl hover:-translate-y-2"
               />
-              <img
+              <Image
                 src="/Project-ArtWork/Landscape.jpg"
-                alt="Artwork 2"
-                className="w-full h-auto object-cover rounded-lg shadow-lg transition-all duration-500 
-                           hover:scale-110 hover:-rotate-3 hover:shadow-2xl hover:-translate-y-2"
+                alt="Artwork 5"
+                width={500}
+                height={500}
+                className="w-full h-auto object-cover rounded-lg shadow-lg transition-all duration-500 hover:scale-110 hover:-rotate-3 hover:shadow-2xl hover:-translate-y-2"
               />
             </div>
           </div>

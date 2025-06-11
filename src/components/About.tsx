@@ -258,7 +258,7 @@ export default function About() {
                 <span className="font-semibold text-gray-800">
                   Hey there! 👋
                 </span>{" "}
-                I'm an{" "}
+                I am an{" "}
                 <span className="text-blue-600 font-medium">enthusiastic</span>{" "}
                 and{" "}
                 <span className="text-purple-600 font-medium">hardworking</span>{" "}
@@ -268,7 +268,7 @@ export default function About() {
               <p className="text-gray-600 leading-relaxed">
                 I love turning ideas into reality through code, creating
                 beautiful user experiences, and solving complex problems with
-                creative solutions. When I'm not coding, you'll find me
+                creative solutions. When I am not coding, you will find me
                 exploring new technologies or sipping coffee while brainstorming
                 my next project! ☕✨
               </p>

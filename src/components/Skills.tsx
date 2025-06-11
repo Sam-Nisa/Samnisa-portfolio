@@ -1,0 +1,400 @@
+"use client";
+
+import { motion } from "framer-motion";
+import {
+  Code,
+  Palette,
+  Users,
+  MessageCircle,
+  CheckCircle,
+  Sparkles,
+  Star,
+  Heart,
+  Zap,
+} from "lucide-react";
+
+const Skills = () => {
+  const skillsData = {
+    softSkills: [
+      {
+        name: "Communication",
+        proficiency: "Advanced",
+        icon: MessageCircle,
+        color: "from-blue-500 to-cyan-500",
+        emoji: "🗣️",
+        description: "Excellent verbal and written communication skills",
+      },
+      {
+        name: "Responsible",
+        proficiency: "Advanced",
+        icon: CheckCircle,
+        color: "from-green-500 to-emerald-500",
+        emoji: "📝",
+        description: "Reliable and accountable in all tasks",
+      },
+      {
+        name: "Teamwork",
+        proficiency: "Advanced",
+        icon: Users,
+        color: "from-purple-500 to-pink-500",
+        emoji: "🤝",
+        description: "Collaborative and supportive team player",
+      },
+    ],
+    programmingSkills: [
+      {
+        name: "C++",
+        proficiency: "Advanced",
+        icon: Code,
+        color: "from-blue-600 to-blue-800",
+        emoji: "🖥️",
+        level: 90,
+      },
+      {
+        name: "C#",
+        proficiency: "Intermediate",
+        icon: Code,
+        color: "from-purple-600 to-purple-800",
+        emoji: "💻",
+        level: 70,
+      },
+      {
+        name: "HTML & CSS",
+        proficiency: "Advanced",
+        icon: Code,
+        color: "from-orange-500 to-red-500",
+        emoji: "🌐",
+        level: 95,
+      },
+      {
+        name: "Database",
+        proficiency: "Intermediate",
+        icon: Code,
+        color: "from-yellow-500 to-orange-500",
+        emoji: "🗃️",
+        level: 75,
+      },
+      {
+        name: "Next.js",
+        proficiency: "Intermediate",
+        icon: Code,
+        color: "from-gray-700 to-gray-900",
+        emoji: "⚛️",
+        level: 80,
+      },
+      {
+        name: "Tailwind CSS",
+        proficiency: "Advanced",
+        icon: Code,
+        color: "from-cyan-500 to-blue-500",
+        emoji: "🎨",
+        level: 90,
+      },
+    ],
+    designSkills: [
+      {
+        name: "UX/UI Design",
+        proficiency: "Intermediate",
+        icon: Palette,
+        color: "from-pink-500 to-rose-500",
+        emoji: "🎨",
+        tools: ["Figma", "Adobe XD"],
+        level: 75,
+      },
+      {
+        name: "Graphic Design",
+        proficiency: "Intermediate",
+        icon: Palette,
+        color: "from-indigo-500 to-purple-500",
+        emoji: "🖌️",
+        tools: ["Adobe Photoshop", "Illustrator"],
+        level: 70,
+      },
+    ],
+  };
+
+  const floatingElements = [
+    { Icon: Star, delay: 0, x: 10, y: 15, color: "text-yellow-400" },
+    { Icon: Heart, delay: 0.5, x: 90, y: 20, color: "text-pink-400" },
+    { Icon: Code, delay: 1, x: 15, y: 80, color: "text-purple-400" },
+    { Icon: Zap, delay: 1.5, x: 85, y: 85, color: "text-blue-400" },
+  ];
+
+  const SkillCard = ({ skill, index, showProgress = false }: any) => (
+    <motion.div
+      className="group relative"
+      initial={{ opacity: 0, y: 50, scale: 0.9 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.6, delay: index * 0.1 }}
+      whileHover={{ y: -5 }}
+    >
+      <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-white/20 overflow-hidden relative p-6">
+        {/* Top Gradient Bar */}
+        <div
+          className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${skill.color}`}
+        />
+
+        {/* Header with Icon */}
+        <div className="flex items-center space-x-4 mb-4">
+          <motion.div
+            className={`p-3 rounded-xl bg-gradient-to-r ${skill.color} text-white shadow-md`}
+            whileHover={{ rotate: 15, scale: 1.1 }}
+            transition={{ type: "spring", stiffness: 300 }}
+          >
+            <skill.icon className="w-6 h-6" />
+          </motion.div>
+          <div className="flex-1">
+            <h3 className="text-xl font-bold text-gray-800 mb-1">
+              {skill.name}
+            </h3>
+            <span
+              className={`text-sm font-medium px-2 py-1 rounded-full bg-gradient-to-r ${skill.color} text-white`}
+            >
+              {skill.proficiency}
+            </span>
+          </div>
+          <span className="text-2xl">{skill.emoji}</span>
+        </div>
+
+        {/* Description or Tools */}
+        {skill.description && (
+          <p className="text-gray-600 text-sm mb-4">{skill.description}</p>
+        )}
+
+        {skill.tools && (
+          <div className="mb-4">
+            <span className="text-sm font-medium text-gray-500 mb-2 block">
+              Tools
+            </span>
+            <div className="flex flex-wrap gap-2">
+              {skill.tools.map((tool: string, toolIndex: number) => (
+                <motion.span
+                  key={toolIndex}
+                  className="px-2 py-1 bg-gray-100 text-gray-700 rounded-lg text-xs font-medium"
+                  whileHover={{ scale: 1.05 }}
+                >
+                  {tool}
+                </motion.span>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Progress Bar */}
+        {showProgress && skill.level && (
+          <div className="mb-4">
+            <div className="flex justify-between items-center mb-2">
+              <span className="text-sm font-medium text-gray-600">
+                Proficiency
+              </span>
+              <span className="text-sm font-bold text-gray-800">
+                {skill.level}%
+              </span>
+            </div>
+            <div className="w-full bg-gray-200 rounded-full h-2">
+              <motion.div
+                className={`h-2 rounded-full bg-gradient-to-r ${skill.color}`}
+                initial={{ width: 0 }}
+                whileInView={{ width: `${skill.level}%` }}
+                viewport={{ once: true }}
+                transition={{ duration: 1, delay: 0.5 }}
+              />
+            </div>
+          </div>
+        )}
+
+        {/* Decorative Corner */}
+        <motion.div
+          className="absolute bottom-2 right-2"
+          animate={{ rotate: [0, 360] }}
+          transition={{
+            duration: 8,
+            repeat: Number.POSITIVE_INFINITY,
+            ease: "linear",
+          }}
+        >
+          <Sparkles className="w-3 h-3 text-purple-400 opacity-30" />
+        </motion.div>
+      </div>
+    </motion.div>
+  );
+
+  return (
+    <div className="relative py-12 px-4 overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 rounded-3xl">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-10 right-10 w-40 h-40 bg-gradient-to-br from-blue-400/10 to-purple-400/10 rounded-full blur-2xl animate-pulse"></div>
+        <div className="absolute bottom-10 left-10 w-40 h-40 bg-gradient-to-br from-purple-400/10 to-pink-400/10 rounded-full blur-2xl animate-pulse delay-1000"></div>
+
+        {/* Floating Decorative Elements */}
+        {floatingElements.map(({ Icon, delay, x, y, color }, index) => (
+          <motion.div
+            key={index}
+            className={`absolute ${color} opacity-20`}
+            animate={{
+              y: [0, -15],
+              rotate: [0, 10],
+              scale: [1, 1.1],
+            }}
+            transition={{
+              duration: 3,
+              repeat: Number.POSITIVE_INFINITY,
+              repeatType: "reverse",
+              delay: delay,
+              ease: "easeInOut",
+            }}
+            style={{
+              left: `${x}%`,
+              top: `${y}%`,
+            }}
+          >
+            <Icon size={24} />
+          </motion.div>
+        ))}
+      </div>
+
+      <div className="relative max-w-6xl mx-auto">
+        {/* Enhanced Header */}
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <motion.div
+            className="flex items-center justify-center space-x-3 mb-4"
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ delay: 0.3, type: "spring", stiffness: 200 }}
+          >
+            <span className="text-3xl">🛠️</span>
+            <span className="text-lg text-gray-600 font-medium">
+              My Expertise
+            </span>
+          </motion.div>
+
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+              Skills
+            </span>
+            <motion.span
+              className="ml-3"
+              animate={{ rotate: [0, 15] }}
+              transition={{
+                duration: 2,
+                repeat: Number.POSITIVE_INFINITY,
+                repeatType: "reverse",
+              }}
+            >
+              ✨
+            </motion.span>
+          </h1>
+
+          <motion.p
+            className="text-gray-600 text-lg max-w-2xl mx-auto"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.6 }}
+          >
+            A diverse set of technical and soft skills that drive innovation and
+            collaboration! 🚀
+          </motion.p>
+        </motion.div>
+
+        {/* Skills Sections */}
+        <div className="space-y-16">
+          {/* Soft Skills */}
+          <section>
+            <motion.h2
+              className="text-3xl font-bold mb-8 text-center bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              💫 Soft Skills
+            </motion.h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {skillsData.softSkills.map((skill, index) => (
+                <SkillCard key={skill.name} skill={skill} index={index} />
+              ))}
+            </div>
+          </section>
+
+          {/* Programming Skills */}
+          <section>
+            <motion.h2
+              className="text-3xl font-bold mb-8 text-center bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              💻 Programming Skills
+            </motion.h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {skillsData.programmingSkills.map((skill, index) => (
+                <SkillCard
+                  key={skill.name}
+                  skill={skill}
+                  index={index}
+                  showProgress={true}
+                />
+              ))}
+            </div>
+          </section>
+
+          {/* Design Skills */}
+          <section>
+            <motion.h2
+              className="text-3xl font-bold mb-8 text-center bg-gradient-to-r from-pink-600 to-red-600 bg-clip-text text-transparent"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              🎨 Design Skills
+            </motion.h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {skillsData.designSkills.map((skill, index) => (
+                <SkillCard
+                  key={skill.name}
+                  skill={skill}
+                  index={index}
+                  showProgress={true}
+                />
+              ))}
+            </div>
+          </section>
+        </div>
+
+        {/* Enhanced Stats Section */}
+        <motion.div
+          className="flex justify-center space-x-8 mt-16"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1 }}
+        >
+          {[
+            { icon: "🛠️", label: "Total Skills", value: "11+" },
+            { icon: "📈", label: "Proficiency", value: "Advanced" },
+            { icon: "⭐", label: "Categories", value: "3" },
+          ].map((stat, index) => (
+            <motion.div
+              key={index}
+              className="text-center p-6 bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20"
+              whileHover={{ scale: 1.05, y: -5 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <div className="text-3xl mb-2">{stat.icon}</div>
+              <div className="font-bold text-gray-800 text-xl">
+                {stat.value}
+              </div>
+              <div className="text-sm text-gray-600">{stat.label}</div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </div>
+  );
+};
+
+export default Skills;

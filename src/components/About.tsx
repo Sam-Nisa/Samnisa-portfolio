@@ -15,24 +15,56 @@ import {
 
 export default function About() {
   const socialIcons = [
-    { name: "github", icon: "github.png", color: "hover:bg-gray-800" },
-    { name: "telegram", icon: "telegram.png", color: "hover:bg-blue-500" },
-    { name: "facebook", icon: "facebook.png", color: "hover:bg-blue-600" },
-    { name: "tik-tok", icon: "tik-tok.png", color: "hover:bg-black" },
+    {
+      name: "github",
+      icon: "github.png",
+      color: "hover:bg-gray-800",
+      fallback: "🐙",
+    },
+    {
+      name: "telegram",
+      icon: "telegram.png",
+      color: "hover:bg-blue-500",
+      fallback: "✈️",
+    },
+    {
+      name: "facebook",
+      icon: "facebook.png",
+      color: "hover:bg-blue-600",
+      fallback: "📘",
+    },
+    {
+      name: "tik-tok",
+      icon: "tik-tok.png",
+      color: "hover:bg-black",
+      fallback: "🎵",
+    },
   ];
 
   const skillIcons = [
-    { name: "photoshop", icon: "photoshop.png", color: "hover:bg-blue-600" },
+    {
+      name: "photoshop",
+      icon: "photoshop.png",
+      color: "hover:bg-blue-600",
+      fallback: "🎨",
+    },
     {
       name: "illustrator",
       icon: "illustrator.png",
       color: "hover:bg-orange-500",
+      fallback: "✏️",
     },
-    { name: "figma", icon: "figma.png", color: "hover:bg-purple-500" },
+    {
+      name: "figma",
+      icon: "figma.png",
+      color: "hover:bg-purple-500",
+      fallback: "🎯",
+    },
     {
       name: "visual-studio",
       icon: "visual-studio.png",
       color: "hover:bg-blue-700",
+      fallback: "💻",
     },
   ];
 
@@ -314,13 +346,13 @@ export default function About() {
                     <span>🌐</span>
                     <span>Connect With Me</span>
                   </h4>
-                  <div className="w-full h-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mt-2"></div>
+                  {/* <div className="w-full h-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mt-2"></div> */}
                 </div>
                 <div className="flex space-x-3">
                   {socialIcons.map((social, index) => (
                     <motion.div
                       key={index}
-                      className={`relative group cursor-pointer`}
+                      className="relative group cursor-pointer"
                       whileHover={{ scale: 1.2, y: -5 }}
                       whileTap={{ scale: 0.9 }}
                       transition={{ type: "spring", stiffness: 300 }}
@@ -332,6 +364,15 @@ export default function About() {
                           width={24}
                           height={24}
                           className="transition-transform duration-300"
+                          onError={(e) => {
+                            // Fallback to emoji if image fails to load
+                            const target = e.target as HTMLImageElement;
+                            target.style.display = "none";
+                            const parent = target.parentElement;
+                            if (parent) {
+                              parent.innerHTML = `<span class="text-xl">${social.fallback}</span>`;
+                            }
+                          }}
                         />
                       </div>
                       <motion.div
@@ -356,7 +397,7 @@ export default function About() {
                     <span>🛠️</span>
                     <span>My Toolkit</span>
                   </h4>
-                  <div className="w-full h-1 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full mt-2"></div>
+                  {/* <div className="w-full h-1 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full mt-2"></div> */}
                 </div>
                 <div className="flex space-x-3">
                   {skillIcons.map((skill, index) => (
@@ -380,6 +421,15 @@ export default function About() {
                           width={24}
                           height={24}
                           className="transition-transform duration-300"
+                          onError={(e) => {
+                            // Fallback to emoji if image fails to load
+                            const target = e.target as HTMLImageElement;
+                            target.style.display = "none";
+                            const parent = target.parentElement;
+                            if (parent) {
+                              parent.innerHTML = `<span class="text-xl">${skill.fallback}</span>`;
+                            }
+                          }}
                         />
                       </div>
                       <motion.div

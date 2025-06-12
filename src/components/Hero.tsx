@@ -16,8 +16,6 @@ export default function Hero() {
     () => [
       "Software Development Student",
       "IT Engineering Student",
-      "Creative Problem Solver",
-      "Tech Enthusiast",
     ],
     []
   );
@@ -148,7 +146,9 @@ export default function Hero() {
             </motion.div>
 
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-              I am{" "}
+              <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+                I am{" "}
+              </span>
               <motion.span
                 className="relative inline-block"
                 whileHover={{ scale: 1.05 }}
@@ -173,7 +173,6 @@ export default function Hero() {
             </h1>
 
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold mb-8 min-h-[3rem]">
-              <span className="text-gray-700">A passionate </span>
               <span className="relative inline-block">
                 <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                   {text}
@@ -210,7 +209,7 @@ export default function Hero() {
               to
               <span className="text-purple-600 font-medium">
                 {" "}
-                Cookbook apps
+                Cookbook Web
               </span>{" "}
               and
               <span className="text-pink-600 font-medium">
@@ -274,31 +273,6 @@ export default function Hero() {
                   </motion.span>
                 </span>
               </motion.a>
-            </motion.div>
-
-            {/* Fun Stats */}
-            <motion.div
-              className="flex justify-center lg:justify-start space-x-8 mt-12"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1.2 }}
-            >
-              {[
-                { icon: "🎯", label: "Projects", value: "10+" },
-                { icon: "☕", label: "Coffee Cups", value: "∞" },
-                { icon: "🌟", label: "Happy Clients", value: "50+" },
-              ].map((stat, index) => (
-                <motion.div
-                  key={index}
-                  className="text-center"
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
-                  <div className="text-2xl mb-1">{stat.icon}</div>
-                  <div className="font-bold text-gray-800">{stat.value}</div>
-                  <div className="text-sm text-gray-600">{stat.label}</div>
-                </motion.div>
-              ))}
             </motion.div>
           </motion.div>
 

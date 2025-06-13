@@ -77,8 +77,8 @@ export default function About() {
 
   const achievements = [
     { icon: "🎓", label: "Student", value: "IT Engineering" },
-    { icon: "💻", label: "Projects", value: "15+" },
-    { icon: "🏆", label: "Experience", value: "2+ Years" },
+    { icon: "💻", label: "Projects", value: "3+" },
+    { icon: "🏆", label: "Experience", value: "1+ Years" },
     { icon: "❤️", label: "Passion", value: "Coding" },
   ];
 
@@ -346,7 +346,7 @@ export default function About() {
                     <span>🌐</span>
                     <span>Connect With Me</span>
                   </h4>
-                  {/* <div className="w-full h-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mt-2"></div> */}
+                  <div className="w-full h-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mt-2"></div>
                 </div>
                 <div className="flex space-x-3">
                   {socialIcons.map((social, index) => (
@@ -376,7 +376,7 @@ export default function About() {
                         />
                       </div>
                       <motion.div
-                        className="absolute -inset-1 bg-gradient-to-r from-blue-400 to-purple-400 rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-300"
+                        // className="absolute -inset-1 bg-gradient-to-r from-blue-400 to-purple-400 rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-300"
                         layoutId={`social-${index}`}
                       />
                     </motion.div>
@@ -397,7 +397,7 @@ export default function About() {
                     <span>🛠️</span>
                     <span>My Toolkit</span>
                   </h4>
-                  {/* <div className="w-full h-1 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full mt-2"></div> */}
+                  <div className="w-full h-1 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full mt-2"></div>
                 </div>
                 <div className="flex space-x-3">
                   {skillIcons.map((skill, index) => (
@@ -433,7 +433,6 @@ export default function About() {
                         />
                       </div>
                       <motion.div
-                        className="absolute -inset-1 bg-gradient-to-r from-purple-400 to-pink-400 rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-300"
                         layoutId={`skill-${index}`}
                       />
                     </motion.div>

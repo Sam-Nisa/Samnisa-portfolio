@@ -42,8 +42,8 @@ export default function Footer() {
   ];
 
   const contactInfo = [
-    { icon: Mail, text: "hello@vibol.dev", href: "mailto:hello@vibol.dev" },
-    { icon: Phone, text: "+855 12 345 678", href: "tel:+85512345678" },
+    { icon: Mail, text: "vibolsen2002@gmail.com", href: "mailto:vibolsen2002@gmail.com" },
+    { icon: Phone, text: "+855 966 845 795", href: "tel:+855966845795" },
     { icon: MapPin, text: "Phnom Penh, Cambodia", href: "#" },
   ];
 
@@ -101,13 +101,16 @@ export default function Footer() {
                     ease: "easeInOut",
                   }}
                 >
-                  <Image
-                    src="/headerlogo.png"
-                    alt="Vibol Logo"
-                    width={48}
-                    height={48}
-                    className="w-12 h-12 rounded-lg shadow-lg"
-                  />
+                  {/* White background container added here */}
+                  <div className="w-12 h-12 rounded-lg bg-white p-1 shadow-lg">
+                    <Image
+                      src="/headerlogo.png"
+                      alt="Vibol Logo"
+                      width={48}
+                      height={48}
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
                   <motion.div
                     className="absolute -top-1 -right-1"
                     animate={{ scale: [1, 1.2, 1], rotate: [0, 180, 360] }}

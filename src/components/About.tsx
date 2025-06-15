@@ -20,24 +20,28 @@ export default function About() {
       icon: "github.png",
       color: "hover:bg-gray-800",
       fallback: "🐙",
+      url: "https://github.com/VibolSen?tab=repositories",
     },
     {
       name: "telegram",
       icon: "telegram.png",
       color: "hover:bg-blue-500",
       fallback: "✈️",
+      url: "https://t.me/vibolsen",
     },
     {
       name: "facebook",
       icon: "facebook.png",
       color: "hover:bg-blue-600",
       fallback: "📘",
+      url: "https://www.facebook.com/vibolsen02",
     },
     {
       name: "tik-tok",
       icon: "tik-tok.png",
       color: "hover:bg-black",
       fallback: "🎵",
+      url: "https://www.tiktok.com/@vibolsen",
     },
   ];
 
@@ -76,9 +80,9 @@ export default function About() {
   ];
 
   const achievements = [
+    { icon: "🎓", label: "Student", value: "Software Development" },
     { icon: "🎓", label: "Student", value: "IT Engineering" },
     { icon: "💻", label: "Projects", value: "3+" },
-    { icon: "🏆", label: "Experience", value: "1+ Years" },
     { icon: "❤️", label: "Passion", value: "Coding" },
   ];
 
@@ -350,14 +354,19 @@ export default function About() {
                 </div>
                 <div className="flex space-x-3">
                   {socialIcons.map((social, index) => (
-                    <motion.div
+                    <motion.a
                       key={index}
+                      href={social.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="relative group cursor-pointer"
                       whileHover={{ scale: 1.2, y: -5 }}
                       whileTap={{ scale: 0.9 }}
                       transition={{ type: "spring", stiffness: 300 }}
                     >
-                      <div className="w-12 h-12 bg-white rounded-2xl shadow-lg flex items-center justify-center group-hover:shadow-xl transition-all duration-300">
+                      <div
+                        className={`w-12 h-12 bg-white rounded-2xl shadow-lg flex items-center justify-center group-hover:shadow-xl transition-all duration-300 ${social.color}`}
+                      >
                         <Image
                           src={`/icon/${social.icon}`}
                           alt={social.name}
@@ -365,7 +374,6 @@ export default function About() {
                           height={24}
                           className="transition-transform duration-300"
                           onError={(e) => {
-                            // Fallback to emoji if image fails to load
                             const target = e.target as HTMLImageElement;
                             target.style.display = "none";
                             const parent = target.parentElement;
@@ -375,11 +383,8 @@ export default function About() {
                           }}
                         />
                       </div>
-                      <motion.div
-                        // className="absolute -inset-1 bg-gradient-to-r from-blue-400 to-purple-400 rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-300"
-                        layoutId={`social-${index}`}
-                      />
-                    </motion.div>
+                      <motion.div layoutId={`social-${index}`} />
+                    </motion.a>
                   ))}
                 </div>
               </motion.div>
@@ -432,9 +437,7 @@ export default function About() {
                           }}
                         />
                       </div>
-                      <motion.div
-                        layoutId={`skill-${index}`}
-                      />
+                      <motion.div layoutId={`skill-${index}`} />
                     </motion.div>
                   ))}
                 </div>

@@ -20,7 +20,7 @@ const Experience = () => {
       position: "Graphic Designer",
       duration: "December 2022 – May 2023",
       location: "Cambodia",
-      type: "Full-time",
+      type: "Part-time",
       color: "from-blue-500 to-cyan-500",
       emoji: "🎨",
       responsibilities: [
@@ -31,6 +31,7 @@ const Experience = () => {
       ],
       achievements: ["Improved brand recognition", "Created 50+ design assets"],
       side: "right",
+      url: "/srolanh-smart-store",
     },
     {
       id: 2,
@@ -49,6 +50,7 @@ const Experience = () => {
       ],
       achievements: ["Supported 10+ major events", "Trained 20+ volunteers"],
       side: "left",
+      url: "/iaysp-cambodia",
     },
   ];
 
@@ -356,7 +358,8 @@ const Experience = () => {
                       </div>
 
                       {/* View More Button */}
-                      <motion.button
+                      <motion.a
+                        href={exp.url}
                         className={`w-full px-4 py-3 bg-gradient-to-r ${exp.color} text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center space-x-2`}
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
@@ -372,7 +375,7 @@ const Experience = () => {
                         >
                           <ExternalLink className="w-4 h-4" />
                         </motion.div>
-                      </motion.button>
+                      </motion.a>
                     </div>
 
                     {/* Decorative Corner */}

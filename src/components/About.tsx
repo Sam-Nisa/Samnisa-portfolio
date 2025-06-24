@@ -99,16 +99,16 @@ export default function About() {
             key={index}
             className={`absolute ${color} opacity-20`}
             animate={{
-              y: [0, -20],
-              rotate: [0, 10],
-              scale: [1, 1.1],
+              y: [0, -25, 0],
+              rotate: [0, 15, -15, 0],
+              scale: [1, 1.2, 1],
             }}
             transition={{
-              duration: 4,
+              duration: 5,
               repeat: Number.POSITIVE_INFINITY,
               repeatType: "reverse",
               delay: delay,
-              ease: "easeInOut",
+              ease: [0.4, 0, 0.2, 1],
             }}
             style={{
               left: `${x}%`,
@@ -150,7 +150,12 @@ export default function About() {
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.8 }}
+        transition={{
+          duration: 0.8,
+          type: "spring",
+          stiffness: 100,
+          damping: 20,
+        }}
       >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Enhanced Profile Image */}
@@ -167,10 +172,10 @@ export default function About() {
                 className="absolute -inset-6 bg-gradient-to-r from-blue-400/20 via-purple-400/20 to-pink-400/20 rounded-full blur-xl"
                 animate={{
                   rotate: [0, 360],
-                  scale: [1, 1.05],
+                  scale: [1, 1.08, 1],
                 }}
                 transition={{
-                  duration: 8,
+                  duration: 10,
                   repeat: Number.POSITIVE_INFINITY,
                   ease: "linear",
                 }}
@@ -180,8 +185,14 @@ export default function About() {
               <motion.div
                 className="relative bg-white/80 backdrop-blur-sm rounded-3xl p-4 shadow-2xl"
                 whileHover={{
-                  scale: 1.02,
-                  rotateY: 5,
+                  scale: 1.03,
+                  rotateY: 3,
+                  rotateX: 2,
+                  transition: {
+                    type: "spring",
+                    stiffness: 300,
+                    damping: 25,
+                  },
                 }}
                 transition={{ type: "spring", stiffness: 300 }}
                 style={{ transformStyle: "preserve-3d" }}
@@ -321,7 +332,16 @@ export default function About() {
                 <motion.div
                   key={index}
                   className="text-center p-4 bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20"
-                  whileHover={{ scale: 1.05, y: -5 }}
+                  whileHover={{
+                    scale: 1.08,
+                    y: -8,
+                    rotateY: 5,
+                    transition: {
+                      type: "spring",
+                      stiffness: 400,
+                      damping: 20,
+                    },
+                  }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
                   <div className="text-2xl mb-2">{achievement.icon}</div>
@@ -360,9 +380,24 @@ export default function About() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="relative group cursor-pointer"
-                      whileHover={{ scale: 1.2, y: -5 }}
-                      whileTap={{ scale: 0.9 }}
-                      transition={{ type: "spring", stiffness: 300 }}
+                      whileHover={{
+                        scale: 1.25,
+                        y: -8,
+                        rotate: 10,
+                        transition: {
+                          type: "spring",
+                          stiffness: 400,
+                          damping: 15,
+                        },
+                      }}
+                      whileTap={{
+                        scale: 0.9,
+                        transition: {
+                          type: "spring",
+                          stiffness: 400,
+                          damping: 15,
+                        },
+                      }}
                     >
                       <div
                         className={`w-12 h-12 bg-white rounded-2xl shadow-lg flex items-center justify-center group-hover:shadow-xl transition-all duration-300 ${social.color}`}
@@ -409,17 +444,38 @@ export default function About() {
                     <motion.div
                       key={index}
                       className="relative group cursor-pointer"
-                      whileHover={{ scale: 1.2, y: -5 }}
-                      whileTap={{ scale: 0.9 }}
-                      transition={{ type: "spring", stiffness: 300 }}
-                      animate={{
-                        y: [0, -3],
+                      whileHover={{
+                        scale: 1.25,
+                        y: -8,
+                        rotate: -10,
+                        transition: {
+                          type: "spring",
+                          stiffness: 400,
+                          damping: 15,
+                        },
                       }}
-                      style={{
-                        animationDelay: `${index * 0.2}s`,
+                      whileTap={{
+                        scale: 0.9,
+                        transition: {
+                          type: "spring",
+                          stiffness: 400,
+                          damping: 15,
+                        },
                       }}
                     >
-                      <div className="w-12 h-12 bg-white rounded-2xl shadow-lg flex items-center justify-center group-hover:shadow-xl transition-all duration-300">
+                      <motion.div
+                        className="w-12 h-12 bg-white rounded-2xl shadow-lg flex items-center justify-center group-hover:shadow-xl transition-all duration-300"
+                        animate={{
+                          y: [0, -5, 0],
+                        }}
+                        transition={{
+                          duration: 2.5 + index * 0.3,
+                          repeat: Number.POSITIVE_INFINITY,
+                          repeatType: "reverse",
+                          delay: index * 0.2,
+                          ease: "easeInOut",
+                        }}
+                      >
                         <Image
                           src={`/icon/${skill.icon}`}
                           alt={skill.name}
@@ -427,7 +483,6 @@ export default function About() {
                           height={24}
                           className="transition-transform duration-300"
                           onError={(e) => {
-                            // Fallback to emoji if image fails to load
                             const target = e.target as HTMLImageElement;
                             target.style.display = "none";
                             const parent = target.parentElement;
@@ -436,7 +491,7 @@ export default function About() {
                             }
                           }}
                         />
-                      </div>
+                      </motion.div>
                       <motion.div layoutId={`skill-${index}`} />
                     </motion.div>
                   ))}
@@ -454,8 +509,19 @@ export default function About() {
             >
               <motion.button
                 className="group relative px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{
+                  scale: 1.05,
+                  y: -3,
+                  transition: {
+                    type: "spring",
+                    stiffness: 400,
+                    damping: 20,
+                  },
+                }}
+                whileTap={{
+                  scale: 0.95,
+                  transition: { duration: 0.1 },
+                }}
               >
                 <span className="relative z-10 flex items-center space-x-2">
                   <Download className="w-5 h-5" />

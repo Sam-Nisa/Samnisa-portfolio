@@ -109,16 +109,16 @@ const Portfolio = () => {
             key={index}
             className={`absolute ${color} opacity-20`}
             animate={{
-              y: [0, -20],
-              rotate: [0, 15],
-              scale: [1, 1.2],
+              y: [0, -25, 0],
+              rotate: [0, 20, -20, 0],
+              scale: [1, 1.3, 1],
             }}
             transition={{
-              duration: 4,
+              duration: 5,
               repeat: Number.POSITIVE_INFINITY,
               repeatType: "reverse",
               delay: delay,
-              ease: "easeInOut",
+              ease: [0.4, 0, 0.2, 1],
             }}
             style={{
               left: `${x}%`,
@@ -135,16 +135,17 @@ const Portfolio = () => {
             key={i}
             className="absolute w-1 h-1 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full"
             animate={{
-              y: [0, -60],
-              x: [0, 30],
-              opacity: [0, 1],
+              y: [0, -80],
+              x: [0, 40],
+              opacity: [0, 0.8, 0],
+              scale: [0.5, 1.2, 0.5],
             }}
             transition={{
-              duration: 8,
+              duration: 10,
               repeat: Number.POSITIVE_INFINITY,
               repeatType: "reverse",
-              delay: i * 0.4,
-              ease: "easeInOut",
+              delay: i * 0.5,
+              ease: [0.4, 0, 0.2, 1],
             }}
             style={{
               left: `${5 + i * 8}%`,
@@ -160,7 +161,12 @@ const Portfolio = () => {
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.8 }}
+        transition={{
+          duration: 0.8,
+          type: "spring",
+          stiffness: 100,
+          damping: 20,
+        }}
       >
         {/* Enhanced Header */}
         <motion.div
@@ -242,16 +248,38 @@ const Portfolio = () => {
                 onClick={() => handleCategoryClick(category.name)}
                 initial={{ opacity: 0, scale: 0.8, y: 20 }}
                 whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                whileHover={{ y: -5 }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{
+                  y: -8,
+                  scale: 1.05,
+                  transition: {
+                    type: "spring",
+                    stiffness: 400,
+                    damping: 20,
+                  },
+                }}
+                whileTap={{
+                  scale: 0.95,
+                  transition: { duration: 0.1 },
+                }}
+                transition={{
+                  duration: 0.5,
+                  delay: index * 0.08,
+                  type: "spring",
+                  stiffness: 200,
+                  damping: 25,
+                }}
               >
                 {/* Active Background */}
                 {isActive && (
                   <motion.div
                     className={`absolute inset-0 bg-gradient-to-r ${category.color}`}
                     layoutId="activeBackground"
-                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 400,
+                      damping: 30,
+                      mass: 0.8,
+                    }}
                   />
                 )}
 
@@ -318,10 +346,16 @@ const Portfolio = () => {
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeCategory}
-                initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                initial={{ opacity: 0, y: 30, scale: 0.95 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: -20, scale: 0.95 }}
-                transition={{ duration: 0.4, ease: "easeInOut" }}
+                exit={{ opacity: 0, y: -30, scale: 0.95 }}
+                transition={{
+                  duration: 0.5,
+                  ease: [0.4, 0, 0.2, 1],
+                  type: "spring",
+                  stiffness: 200,
+                  damping: 25,
+                }}
               >
                 {/* Category Header */}
                 <motion.div
@@ -376,8 +410,16 @@ const Portfolio = () => {
           {/* Decorative Corner Elements */}
           <motion.div
             className="absolute -top-4 -left-4 w-8 h-8 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full opacity-60"
-            animate={{ scale: [1, 1.2, 1], rotate: [0, 180, 360] }}
-            transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY }}
+            animate={{
+              scale: [1, 1.3, 1],
+              rotate: [0, 180, 360],
+              opacity: [0.6, 0.8, 0.6],
+            }}
+            transition={{
+              duration: 5,
+              repeat: Number.POSITIVE_INFINITY,
+              ease: "easeInOut",
+            }}
           />
           <motion.div
             className="absolute -bottom-4 -right-4 w-6 h-6 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full opacity-60"
@@ -401,7 +443,16 @@ const Portfolio = () => {
             <motion.div
               key={index}
               className="text-center p-4 bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20"
-              whileHover={{ scale: 1.05, y: -5 }}
+              whileHover={{
+                scale: 1.08,
+                y: -8,
+                rotateY: 5,
+                transition: {
+                  type: "spring",
+                  stiffness: 400,
+                  damping: 20,
+                },
+              }}
               transition={{ type: "spring", stiffness: 300 }}
             >
               <div className="text-2xl mb-2">{stat.icon}</div>

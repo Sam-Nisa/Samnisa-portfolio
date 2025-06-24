@@ -13,10 +13,7 @@ export default function Hero() {
 
   // Move roles outside component or use useMemo to prevent recreation
   const roles = useMemo(
-    () => [
-      "Software Development Student",
-      "IT Engineering Student",
-    ],
+    () => ["Software Development Student", "IT Engineering Student"],
     []
   );
 
@@ -73,14 +70,15 @@ export default function Hero() {
             animate={{
               y: [-20, -100],
               x: [0, 30],
-              opacity: [0, 1],
+              opacity: [0, 1, 0],
+              scale: [0.5, 1, 0.5],
             }}
             transition={{
-              duration: 4,
+              duration: 6,
               repeat: Number.POSITIVE_INFINITY,
               repeatType: "reverse",
-              delay: i * 0.8,
-              ease: "easeInOut",
+              delay: i * 0.6,
+              ease: [0.4, 0, 0.2, 1],
             }}
             style={{
               left: `${20 + i * 15}%`,
@@ -96,7 +94,12 @@ export default function Hero() {
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.8 }}
+        transition={{
+          duration: 0.8,
+          type: "spring",
+          stiffness: 100,
+          damping: 20,
+        }}
       >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
           {/* Text Content */}
@@ -105,7 +108,13 @@ export default function Hero() {
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{
+              duration: 0.8,
+              delay: 0.2,
+              type: "spring",
+              stiffness: 120,
+              damping: 25,
+            }}
           >
             {/* Floating Icons */}
             {floatingIcons.map(({ Icon, delay, x, y }, index) => (
@@ -113,11 +122,12 @@ export default function Hero() {
                 key={index}
                 className="absolute text-blue-400/30"
                 animate={{
-                  y: [-10, 0],
-                  rotate: [0, 5],
+                  y: [-15, 5],
+                  rotate: [0, 8, -8, 0],
+                  scale: [1, 1.1, 1],
                 }}
                 transition={{
-                  duration: 3,
+                  duration: 4,
                   repeat: Number.POSITIVE_INFINITY,
                   repeatType: "reverse",
                   delay: delay,
@@ -230,8 +240,19 @@ export default function Hero() {
               <motion.a
                 href="#portfolio"
                 className="group relative px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{
+                  scale: 1.05,
+                  y: -3,
+                  transition: {
+                    type: "spring",
+                    stiffness: 400,
+                    damping: 20,
+                  },
+                }}
+                whileTap={{
+                  scale: 0.95,
+                  transition: { duration: 0.1 },
+                }}
               >
                 <span className="relative z-10 flex items-center justify-center">
                   <span>View My Work</span>
@@ -254,8 +275,19 @@ export default function Hero() {
               <motion.a
                 href="#contact"
                 className="group px-8 py-4 border-2 border-blue-500 text-blue-600 rounded-full font-semibold hover:bg-blue-500 hover:text-white transition-all duration-300 relative overflow-hidden"
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{
+                  scale: 1.05,
+                  y: -3,
+                  transition: {
+                    type: "spring",
+                    stiffness: 400,
+                    damping: 20,
+                  },
+                }}
+                whileTap={{
+                  scale: 0.95,
+                  transition: { duration: 0.1 },
+                }}
               >
                 <span className="relative z-10 flex items-center justify-center">
                   <span>Let Chat</span>
@@ -305,8 +337,13 @@ export default function Hero() {
                 className="relative bg-white/80 backdrop-blur-sm rounded-3xl p-6 shadow-2xl"
                 whileHover={{
                   scale: 1.02,
-                  rotateY: 5,
-                  rotateX: 5,
+                  rotateY: 3,
+                  rotateX: 2,
+                  transition: {
+                    type: "spring",
+                    stiffness: 300,
+                    damping: 25,
+                  },
                 }}
                 transition={{ type: "spring", stiffness: 300 }}
                 style={{ transformStyle: "preserve-3d" }}
@@ -347,15 +384,24 @@ export default function Hero() {
                     <motion.div
                       key={index}
                       className="w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-xl"
-                      whileHover={{ scale: 1.2, rotate: 360 }}
+                      whileHover={{
+                        scale: 1.3,
+                        rotate: 15,
+                        y: -5,
+                        transition: {
+                          type: "spring",
+                          stiffness: 400,
+                          damping: 15,
+                        },
+                      }}
                       animate={{
-                        y: [0, -5],
+                        y: [0, -8, 0],
                       }}
                       transition={{
-                        duration: 2,
+                        duration: 3,
                         repeat: Number.POSITIVE_INFINITY,
                         repeatType: "reverse",
-                        delay: index * 0.2,
+                        delay: index * 0.3,
                         ease: "easeInOut",
                       }}
                     >

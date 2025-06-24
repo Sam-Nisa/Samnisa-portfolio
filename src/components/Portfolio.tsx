@@ -427,40 +427,6 @@ const Portfolio = () => {
             transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY }}
           />
         </motion.div>
-
-        {/* Fun Stats */}
-        <motion.div
-          className="flex justify-center space-x-8 mt-16"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.2 }}
-        >
-          {[
-            { icon: "📚", label: "Categories", value: "5" },
-            { icon: "🎯", label: "Focus Areas", value: "Multiple" },
-            { icon: "⭐", label: "Quality", value: "Premium" },
-          ].map((stat, index) => (
-            <motion.div
-              key={index}
-              className="text-center p-4 bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20"
-              whileHover={{
-                scale: 1.08,
-                y: -8,
-                rotateY: 5,
-                transition: {
-                  type: "spring",
-                  stiffness: 400,
-                  damping: 20,
-                },
-              }}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
-              <div className="text-2xl mb-2">{stat.icon}</div>
-              <div className="font-bold text-gray-800">{stat.value}</div>
-              <div className="text-sm text-gray-600">{stat.label}</div>
-            </motion.div>
-          ))}
-        </motion.div>
       </motion.section>
     </div>
   );

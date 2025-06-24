@@ -84,10 +84,10 @@ export default function Contact() {
   ];
 
   const contactInfo = [
-    { icon: Mail, text: "hello@vibol.dev", color: "from-blue-400 to-cyan-500" },
+    { icon: Mail, text: "vibolsen2002@gmail.com", color: "from-blue-400 to-cyan-500" },
     {
       icon: Phone,
-      text: "+855 12 345 678",
+      text: "+855 966 845 795",
       color: "from-green-400 to-emerald-500",
     },
     {
@@ -557,57 +557,6 @@ export default function Contact() {
           </motion.div>
         </div>
 
-        {/* Social Media Links */}
-        <motion.div
-          className="flex justify-center space-x-6 mt-16"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1 }}
-        >
-          {[
-            {
-              name: "GitHub",
-              icon: "/icon/github.png",
-              color: "hover:bg-gray-800",
-            },
-            {
-              name: "LinkedIn",
-              icon: "/icon/telegram.png",
-              color: "hover:bg-blue-600",
-            },
-            {
-              name: "Twitter",
-              icon: "/icon/facebook.png",
-              color: "hover:bg-blue-400",
-            },
-            {
-              name: "Instagram",
-              icon: "/icon/tik-tok.png",
-              color: "hover:bg-pink-600",
-            },
-          ].map((social, index) => (
-            <motion.a
-              key={index}
-              href="#"
-              className="relative group"
-              whileHover={{ scale: 1.1, y: -5 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <div className="w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center group-hover:shadow-xl transition-all duration-300">
-                <Image
-                  src={social.icon || "/placeholder.svg"}
-                  alt={social.name}
-                  width={24}
-                  height={24}
-                />
-              </div>
-              <motion.div
-                className={`absolute -inset-1 rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-300 ${social.color}`}
-                layoutId={`social-hover-${index}`}
-              />
-            </motion.a>
-          ))}
-        </motion.div>
       </motion.section>
     </div>
   );

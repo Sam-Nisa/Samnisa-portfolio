@@ -507,8 +507,10 @@ export default function About() {
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.6, delay: 0.6 }}
             >
-              <motion.button
-                className="group relative px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
+              <motion.a
+                href="/curriculumVitae/VibolSEN.pdf"
+                download="VibolSEN_CV.pdf"
+                className="group relative px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden inline-block"
                 whileHover={{
                   scale: 1.05,
                   y: -3,
@@ -521,6 +523,16 @@ export default function About() {
                 whileTap={{
                   scale: 0.95,
                   transition: { duration: 0.1 },
+                }}
+                onClick={() => {
+                  // Fallback for browsers that don't support download attribute
+                  const link = document.createElement("a");
+                  link.href = "/curriculumVitae/VibolSEN.pdf";
+                  link.download = "VibolSEN_CV.pdf";
+                  link.target = "_blank";
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
                 }}
               >
                 <span className="relative z-10 flex items-center space-x-2">
@@ -538,7 +550,7 @@ export default function About() {
                   </motion.span>
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </motion.button>
+              </motion.a>
             </motion.div>
           </motion.div>
         </div>

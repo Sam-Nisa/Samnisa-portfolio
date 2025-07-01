@@ -283,7 +283,7 @@ const Portfolio = () => {
                   />
                 )}
 
-                {/* Button Content */}
+                {/* Button C ontent */}
                 <div className="relative z-10 flex items-center space-x-3">
                   <motion.div
                     animate={isActive ? { rotate: [0, 10, 0] } : {}}

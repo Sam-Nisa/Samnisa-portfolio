@@ -37,11 +37,11 @@ export default function About() {
       url: "https://www.facebook.com/vibolsen02",
     },
     {
-      name: "tik-tok",
-      icon: "tik-tok.png",
+      name: "linkedin",
+      icon: "linkedin.png",
       color: "hover:bg-black",
       fallback: "🎵",
-      url: "https://www.tiktok.com/@vibolsen",
+      url: "https://www.linkedin.com/in/vibol-sen-a6372324a/",
     },
   ];
 

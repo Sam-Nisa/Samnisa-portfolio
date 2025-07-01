@@ -396,33 +396,6 @@ const Experience = () => {
             ))}
           </div>
         </div>
-
-        {/* Enhanced Stats Section */}
-        <motion.div
-          className="flex justify-center space-x-8 mt-16"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1 }}
-        >
-          {[
-            { icon: "💼", label: "Positions", value: "2" },
-            { icon: "📅", label: "Years Experience", value: "3+" },
-            { icon: "🏆", label: "Projects Completed", value: "60+" },
-          ].map((stat, index) => (
-            <motion.div
-              key={index}
-              className="text-center p-6 bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20"
-              whileHover={{ scale: 1.05, y: -5 }}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
-              <div className="text-3xl mb-2">{stat.icon}</div>
-              <div className="font-bold text-gray-800 text-xl">
-                {stat.value}
-              </div>
-              <div className="text-sm text-gray-600">{stat.label}</div>
-            </motion.div>
-          ))}
-        </motion.div>
       </div>
     </div>
   );

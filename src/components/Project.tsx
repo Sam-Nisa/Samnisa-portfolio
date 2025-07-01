@@ -139,7 +139,7 @@ const Projects = () => {
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
             <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-              UX/UI Design
+              UX/UI And Frontend Design
             </span>{" "}
             <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
               Projects
@@ -304,33 +304,6 @@ const Projects = () => {
             </motion.div>
           ))}
         </div>
-
-        {/* Enhanced Stats Section */}
-        <motion.div
-          className="flex justify-center space-x-8 mt-16"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1 }}
-        >
-          {[
-            { icon: "🎨", label: "Projects", value: "3+" },
-            { icon: "🛠️", label: "Tools Mastered", value: "5+" },
-            { icon: "⭐", label: "Design Quality", value: "Premium" },
-          ].map((stat, index) => (
-            <motion.div
-              key={index}
-              className="text-center p-6 bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20"
-              whileHover={{ scale: 1.05, y: -5 }}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
-              <div className="text-3xl mb-2">{stat.icon}</div>
-              <div className="font-bold text-gray-800 text-xl">
-                {stat.value}
-              </div>
-              <div className="text-sm text-gray-600">{stat.label}</div>
-            </motion.div>
-          ))}
-        </motion.div>
       </div>
     </div>
   );

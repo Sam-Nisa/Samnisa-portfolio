@@ -182,7 +182,7 @@ export default function Hero() {
               </motion.span>
             </h1>
 
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold mb-8 min-h-[3rem]">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold mb-4 min-h-[3rem]">
               <span className="relative inline-block">
                 <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                   {text}
@@ -212,22 +212,10 @@ export default function Hero() {
                 Welcome to my digital world!
               </span>{" "}
               ✨ I am a dedicated developer who loves crafting beautiful,
-              user-friendly applications. From{" "}
-              <span className="text-blue-600 font-medium">
-                Ecommerce platforms
-              </span>{" "}
-              to
-              <span className="text-purple-600 font-medium">
-                {" "}
-                Cookbook Web
-              </span>{" "}
-              and
-              <span className="text-pink-600 font-medium">
-                {" "}
-                Tour Management Systems
-              </span>{" "}
-              - I blend creativity with technology to create amazing
-              experiences! 🚀
+              user-friendly applications. I blend creativity with technology to
+              create amazing experiences. for specializing in building
+              responsive, user-friendly interfaces and enjoys turning ideas into
+              interactive web experiences in frontend development. 🚀
             </motion.p>
 
             {/* Enhanced Buttons */}

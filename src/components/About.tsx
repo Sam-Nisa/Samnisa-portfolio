@@ -20,44 +20,33 @@ export default function About() {
       icon: "github.png",
       color: "hover:bg-gray-800",
       fallback: "🐙",
-      url: "https://github.com/VibolSen?tab=repositories",
+      url: "https://github.com/Sam-Nisa",
     },
     {
       name: "telegram",
       icon: "telegram.png",
       color: "hover:bg-blue-500",
       fallback: "✈️",
-      url: "https://t.me/vibolsen",
+      url: "https://t.me/Samnisa21",
     },
     {
       name: "facebook",
       icon: "facebook.png",
       color: "hover:bg-blue-600",
       fallback: "📘",
-      url: "https://www.facebook.com/vibolsen02",
+      url: "https://www.facebook.com/sam.nisa.35",
     },
     {
       name: "linkedin",
       icon: "linkedin.png",
       color: "hover:bg-black",
       fallback: "🎵",
-      url: "https://www.linkedin.com/in/vibol-sen-a6372324a/",
+      url: "https://www.linkedin.com/in/sam-nisa-a31586358/",
     },
   ];
 
   const skillIcons = [
-    {
-      name: "photoshop",
-      icon: "photoshop.png",
-      color: "hover:bg-blue-600",
-      fallback: "🎨",
-    },
-    {
-      name: "illustrator",
-      icon: "illustrator.png",
-      color: "hover:bg-orange-500",
-      fallback: "✏️",
-    },
+
     {
       name: "figma",
       icon: "figma.png",
@@ -66,7 +55,7 @@ export default function About() {
     },
     {
       name: "visual-studio",
-      icon: "visual-studio.png",
+      icon: "vs code.jpeg",
       color: "hover:bg-blue-700",
       fallback: "💻",
     },
@@ -80,7 +69,6 @@ export default function About() {
   ];
 
   const achievements = [
-    { icon: "🎓", label: "Student", value: "Software Development" },
     { icon: "🎓", label: "Student", value: "IT Engineering" },
     { icon: "💻", label: "Projects", value: "3+" },
     { icon: "❤️", label: "Passion", value: "Coding" },
@@ -198,8 +186,8 @@ export default function About() {
                 style={{ transformStyle: "preserve-3d" }}
               >
                 <Image
-                  src="/about.png"
-                  alt="Vibol - About Me"
+                  src="/about.jpg"
+                  alt="Nisa - About Me"
                   width={400}
                   height={400}
                   className="rounded-2xl shadow-lg w-full h-auto"
@@ -309,7 +297,7 @@ export default function About() {
                 <span className="text-blue-600 font-medium">enthusiastic</span>{" "}
                 and{" "}
                 <span className="text-purple-600 font-medium">hardworking</span>{" "}
-                software development student with proven organizational and
+                wed development student with proven organizational and
                 communication skills.
               </p>
               <p className="text-gray-600 leading-relaxed">
@@ -508,8 +496,8 @@ export default function About() {
               transition={{ duration: 0.6, delay: 0.6 }}
             >
               <motion.a
-                href="/curriculumVitae/VibolSEN.pdf"
-                download="VibolSEN_CV.pdf"
+                href="/curriculumVitae/Samnisa_CV.pdf"
+                download="Samnisa_CV.pdf"
                 className="group relative px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden inline-block"
                 whileHover={{
                   scale: 1.05,
@@ -527,8 +515,8 @@ export default function About() {
                 onClick={() => {
                   // Fallback for browsers that don't support download attribute
                   const link = document.createElement("a");
-                  link.href = "/curriculumVitae/VibolSEN.pdf";
-                  link.download = "VibolSEN_CV.pdf";
+                  link.href = "/curriculumVitae/Samnisa_CV.pdf";
+                  link.download = "Samnisa_CV.pdf";
                   link.target = "_blank";
                   document.body.appendChild(link);
                   link.click();

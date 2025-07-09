@@ -238,8 +238,8 @@ export default function Header() {
                 }}
               >
                 <Image
-                  src="/headerlogo.png"
-                  alt="Vibol Logo"
+                  src="/logo/logo.jpg"
+                  alt="Nisa Logo"
                   width={40}
                   height={40}
                   className="w-auto h-10 rounded-xl shadow-lg group-hover:shadow-2xl transition-all duration-500"

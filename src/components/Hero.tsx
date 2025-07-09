@@ -13,7 +13,7 @@ export default function Hero() {
 
   // Move roles outside component or use useMemo to prevent recreation
   const roles = useMemo(
-    () => ["Software Development Student", "IT Engineering Student"],
+    () => [ "IT Engineering Student"],
     []
   );
 
@@ -165,7 +165,7 @@ export default function Hero() {
                 transition={{ type: "spring", stiffness: 300 }}
               >
                 <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent animate-gradient-x">
-                  Vibol
+                  Nisa
                 </span>
                 <motion.div
                   className="absolute -top-2 -right-2"
@@ -338,7 +338,7 @@ export default function Hero() {
               >
                 <Image
                   src="/gif/hero.png"
-                  alt="Vibol - Software Developer"
+                  alt="Vibol - Web developer"
                   width={400}
                   height={300}
                   className="w-full max-w-sm mx-auto rounded-2xl shadow-lg"

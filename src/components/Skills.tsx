@@ -31,8 +31,34 @@ type ProgrammingSkill = {
   emoji: string;
   level: number;
 };
+type FramworksSkill = {
+  name: string;
+  proficiency: string;
+  icon: ElementType;
+  color: string;
+  emoji: string;
+  level: number;
+};
+type DatabaseSkill = {
+  name: string;
+  proficiency: string;
+  icon: ElementType;
+  color: string;
+  emoji: string;
+  level: number;
+};
 
 type DesignSkill = {
+  name: string;
+  proficiency: string;
+  icon: ElementType;
+  color: string;
+  emoji: string;
+  tools: string[];
+  level: number;
+};
+
+type Versoncontrol = {
   name: string;
   proficiency: string;
   icon: ElementType;
@@ -80,28 +106,28 @@ const Skills = () => {
     ] as SoftSkill[],
     programmingSkills: [
       {
-        name: "C++",
+        name: "C/C++",
         proficiency: "Advanced",
         icon: Code,
         color: "from-blue-600 to-blue-800",
         emoji: "🖥️",
         level: 90,
       },
-      {
-        name: "C#",
+            {
+        name: "Javascript",
         proficiency: "Intermediate",
         icon: Code,
         color: "from-purple-600 to-purple-800",
         emoji: "💻",
         level: 70,
       },
-      {
-        name: "HTML & CSS",
-        proficiency: "Advanced",
+            {
+        name: "PHP",
+        proficiency: "Intermediate",
         icon: Code,
-        color: "from-orange-500 to-red-500",
-        emoji: "🌐",
-        level: 95,
+        color: "from-purple-600 to-purple-800",
+        emoji: "💻",
+        level: 70,
       },
       {
         name: "Database",
@@ -111,7 +137,10 @@ const Skills = () => {
         emoji: "🗃️",
         level: 75,
       },
-      {
+
+    ] as ProgrammingSkill[],
+    FramworksSkill: [
+           {
         name: "Next.js",
         proficiency: "Intermediate",
         icon: Code,
@@ -119,15 +148,51 @@ const Skills = () => {
         emoji: "⚛️",
         level: 80,
       },
+            {
+        name: "HTML & CSS",
+        proficiency: "Advanced",
+        icon: Code,
+        color: "from-orange-500 to-red-500",
+        emoji: "🌐",
+        level: 95,
+      },
       {
         name: "Tailwind CSS",
-        proficiency: "Advanced",
+        proficiency: "Intermediate",
         icon: Code,
         color: "from-cyan-500 to-blue-500",
         emoji: "🎨",
+        level: 70,
+      },]as FramworksSkill[],
+      DatabaseSkill: [
+           {
+        name: "Xammp",
+        proficiency: "Intermediate",
+        icon: Code,
+        color: "from-gray-700 to-gray-900",
+        emoji: "⚛️",
+        level: 70,
+      },
+            {
+        name: "Supabase",
+        proficiency: "Advanced",
+        icon: Code,
+        color: "from-orange-500 to-red-500",
+        emoji: "🌐",
+        level: 70,
+      },]as DatabaseSkill[],
+          Versoncontrol: [
+      {
+        name: "UX/UI Advanced",
+        proficiency: "Advan",
+        icon: Palette,
+        color: "from-pink-500 to-rose-500",
+        emoji: "🎨",
+        tools: ["Figma", "Adobe XD"],
         level: 90,
       },
-    ] as ProgrammingSkill[],
+
+    ] as Versoncontrol[],
     designSkills: [
       {
         name: "UX/UI Design",
@@ -138,15 +203,7 @@ const Skills = () => {
         tools: ["Figma", "Adobe XD"],
         level: 75,
       },
-      {
-        name: "Graphic Design",
-        proficiency: "Intermediate",
-        icon: Palette,
-        color: "from-indigo-500 to-purple-500",
-        emoji: "🖌️",
-        tools: ["Adobe Photoshop", "Illustrator"],
-        level: 70,
-      },
+
     ] as DesignSkill[],
   };
 
@@ -358,6 +415,77 @@ const Skills = () => {
               ))}
             </div>
           </section>
+
+
+          <section>
+            <motion.h2
+              className="text-3xl font-bold mb-8 text-center bg-gradient-to-r from-blue-600 to-pink-900 bg-clip-text text-transparent"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              💻 Framwork Skills
+            </motion.h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {skillsData.FramworksSkill.map((skill, index) => (
+                <SkillCard
+                  key={skill.name}
+                  skill={skill}
+                  index={index}
+                  showProgress={true}
+                />
+              ))}
+            </div>
+          </section>
+
+
+
+
+                    <section>
+            <motion.h2
+              className="text-3xl font-bold mb-8 text-center bg-gradient-to-r from-green-600 to-pink-900 bg-clip-text text-transparent"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              💻 Database Skills
+            </motion.h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {skillsData.DatabaseSkill
+              .map((skill, index) => (
+                <SkillCard
+                  key={skill.name}
+                  skill={skill}
+                  index={index}
+                  showProgress={true}
+                />
+              ))}
+            </div>
+          </section>
+
+
+
+                        <section>
+            <motion.h2
+              className="text-3xl font-bold mb-8 text-center bg-gradient-to-r from-gray-600 to-blue-600 bg-clip-text text-transparent"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              🎨 Verson controll Skills
+            </motion.h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {skillsData.designSkills.map((skill, index) => (
+                <SkillCard
+                  key={skill.name}
+                  skill={skill}
+                  index={index}
+                  showProgress={true}
+                />
+              ))}
+            </div>
+          </section>
+
 
           <section>
             <motion.h2

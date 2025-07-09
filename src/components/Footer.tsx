@@ -42,8 +42,8 @@ export default function Footer() {
   ];
 
   const contactInfo = [
-    { icon: Mail, text: "vibolsen2002@gmail.com", href: "mailto:vibolsen2002@gmail.com" },
-    { icon: Phone, text: "+855 966 845 795", href: "tel:+855966845795" },
+    { icon: Mail, text: "samnisa2104@gmail.com", href: "mailto:vibolsen2002@gmail.com" },
+    { icon: Phone, text: "+855 966 845 795", href: "tel:+855768362411" },
     { icon: MapPin, text: "Phnom Penh, Cambodia", href: "#" },
   ];
 
@@ -104,7 +104,7 @@ export default function Footer() {
                   {/* White background container added here */}
                   <div className="w-12 h-12 rounded-lg bg-white p-1 shadow-lg">
                     <Image
-                      src="/headerlogo.png"
+                      src="/logo/logo.jpg"
                       alt="Vibol Logo"
                       width={48}
                       height={48}
@@ -124,9 +124,9 @@ export default function Footer() {
                 </motion.div>
                 <div>
                   <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                    Vibol Sen
+                    Sam Nisa
                   </h3>
-                  <p className="text-gray-300">Software Developer</p>
+                  <p className="text-gray-300">Web Developer</p>
                 </div>
               </div>
 
@@ -241,7 +241,7 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             {/* Copyright */}
             <div className="flex items-center space-x-2 text-gray-400">
-              <span>© 2024 Vibol Sen. Made with</span>
+              <span>© 2025 Nisa Sam. Made with</span>
               <motion.div
                 animate={{ scale: [1, 1.2, 1] }}
                 transition={{ duration: 1, repeat: Number.POSITIVE_INFINITY }}

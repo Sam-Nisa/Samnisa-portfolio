@@ -84,10 +84,10 @@ export default function Contact() {
   ];
 
   const contactInfo = [
-    { icon: Mail, text: "vibolsen2002@gmail.com", color: "from-blue-400 to-cyan-500" },
+    { icon: Mail, text: "samnisa2104@gmail.com", color: "from-blue-400 to-cyan-500" },
     {
       icon: Phone,
-      text: "+855 966 845 795",
+      text: "+855 768362411",
       color: "from-green-400 to-emerald-500",
     },
     {

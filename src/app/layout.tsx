@@ -17,10 +17,10 @@ const geistMono = Geist_Mono({
 
 // Metadata for <head>
 export const metadata: Metadata = {
-  title: "My Portfolio VibolSEN",
+  title: "My Portfolio Samnisa",
   description: "Showcasing my work and projects",
   icons: {
-    icon: "/images/favicon.ico",
+    icon: "/images/logo.ico",
   },
 };
 

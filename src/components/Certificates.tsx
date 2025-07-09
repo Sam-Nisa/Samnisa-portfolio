@@ -17,40 +17,29 @@ const Certificates = () => {
   const certificatesData = [
     {
       id: 1,
-      title: "Cybersecurity Fundamentals",
-      issuer: "APNIC Academy",
-      date: "October 13, 2023",
-      image: "/catification/Cybersecurity-Fundamentals-APNIC-Academy.jpg",
+      title: "Basic/ Advance C /C++ ",
+      issuer: "ETEC Center",
+      date: "July 15 2023",
+      image: "/catification/etec.jpg",
       description:
-        "Earned by Vibol Sen for completing the Cybersecurity Fundamentals course offered by APNIC Academy.",
+        "Earned by Sam Nisa completing tBasic/ Advance C /C++  course offered by ETEC Center.",
       type: "Technical",
       color: "from-blue-500 to-cyan-500",
       emoji: "🔒",
     },
     {
       id: 2,
-      title: "Certificate of Appreciation",
-      issuer: "IAYSP-Cambodia",
-      date: "October 14, 2022",
-      image: "/catification/Certificate of Appriciation.jpg",
+      title: "Web design Junior",
+      issuer: "CSTAD",
+      date: "September 27, 2024",
+      image: "/catification/cstad.jpg",
       description:
-        "Awarded for participating in the Hyo Jeong Youth Festival 2022 under the theme 'Redream Your Future'.",
+        "Had  completed the Pre-Univerdity training course of 1st generation of Web Design Junior ",
       type: "Achievement",
       color: "from-purple-500 to-pink-500",
       emoji: "🏆",
     },
-    {
-      id: 3,
-      title: "Certificate of Appreciation",
-      issuer: "IAYSP-Cambodia",
-      date: "October 14, 2022",
-      image: "/catification/Certificate of Appriciation.jpg",
-      description:
-        "Awarded for participating in the Hyo Jeong Youth Festival 2022 under the theme 'Redream Your Future'.",
-      type: "Achievement",
-      color: "from-green-500 to-emerald-500",
-      emoji: "🌟",
-    },
+
   ];
 
   const floatingElements = [
@@ -249,7 +238,7 @@ const Certificates = () => {
                   </p>
 
                   {/* View Certificate Button */}
-                  <motion.button
+                  {/* <motion.button
                     className={`w-full px-4 py-3 bg-gradient-to-r ${cert.color} text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center space-x-2 group`}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
@@ -265,7 +254,7 @@ const Certificates = () => {
                     >
                       <ExternalLink className="w-4 h-4" />
                     </motion.div>
-                  </motion.button>
+                  </motion.button> */}
                 </div>
 
                 {/* Decorative Corner */}

@@ -39,13 +39,13 @@ const Portfolio = () => {
       emoji: "🏆",
       description: "Achievements & certifications",
     },
-    {
-      name: "Experience",
-      icon: Briefcase,
-      color: "from-green-500 to-emerald-500",
-      emoji: "💼",
-      description: "Professional experience",
-    },
+    // {
+    //   name: "Experience",
+    //   icon: Briefcase,
+    //   color: "from-green-500 to-emerald-500",
+    //   emoji: "💼",
+    //   description: "Professional experience",
+    // },
     {
       name: "Skills",
       icon: Code,

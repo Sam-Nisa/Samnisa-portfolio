@@ -1,10 +1,11 @@
 "use client";
 
+
+
 import { motion } from "framer-motion";
 import {
   Award,
   Calendar,
-  ExternalLink,
   Sparkles,
   Star,
   Trophy,

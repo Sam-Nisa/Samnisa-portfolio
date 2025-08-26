@@ -496,8 +496,8 @@ export default function About() {
               transition={{ duration: 0.6, delay: 0.6 }}
             >
               <motion.a
-                href="/curriculumVitae/Samnisa_CV.pdf"
-                download="Samnisa_CV.pdf"
+                href="/curriculumVitae/Nisa-CV.pdf"
+                download="Nisa-CV.pdf"
                 className="group relative px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden inline-block"
                 whileHover={{
                   scale: 1.05,
@@ -515,8 +515,8 @@ export default function About() {
                 onClick={() => {
                   // Fallback for browsers that don't support download attribute
                   const link = document.createElement("a");
-                  link.href = "/curriculumVitae/Samnisa_CV.pdf";
-                  link.download = "Samnisa_CV.pdf";
+                  link.href = "/curriculumVitae/Nisa-CV.pdf";
+                  link.download = "Nisa-CV.pdf";
                   link.target = "_blank";
                   document.body.appendChild(link);
                   link.click();

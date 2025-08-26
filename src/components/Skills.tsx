@@ -183,8 +183,8 @@ const Skills = () => {
       },]as DatabaseSkill[],
           Versoncontrol: [
       {
-        name: "UX/UI Advanced",
-        proficiency: "Advan",
+        name: "Git/Github",
+        proficiency: "Intermediate",
         icon: Palette,
         color: "from-pink-500 to-rose-500",
         emoji: "🎨",
@@ -193,14 +193,14 @@ const Skills = () => {
       },
 
     ] as Versoncontrol[],
-    designSkills: [
+    DesignSkills: [
       {
         name: "UX/UI Design",
         proficiency: "Intermediate",
         icon: Palette,
         color: "from-pink-500 to-rose-500",
         emoji: "🎨",
-        tools: ["Figma", "Adobe XD"],
+        tools: ["Figma"],
         level: 75,
       },
 
@@ -465,7 +465,7 @@ const Skills = () => {
 
 
 
-                        <section>
+       {/* <section>
             <motion.h2
               className="text-3xl font-bold mb-8 text-center bg-gradient-to-r from-gray-600 to-blue-600 bg-clip-text text-transparent"
               initial={{ opacity: 0, y: 20 }}
@@ -475,7 +475,7 @@ const Skills = () => {
               🎨 Verson controll Skills
             </motion.h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {skillsData.designSkills.map((skill, index) => (
+              {skillsData.Versoncontrol.map((skill, index) => (
                 <SkillCard
                   key={skill.name}
                   skill={skill}
@@ -484,7 +484,7 @@ const Skills = () => {
                 />
               ))}
             </div>
-          </section>
+          </section> */}
 
 
           <section>
@@ -497,7 +497,7 @@ const Skills = () => {
               🎨 Design Skills
             </motion.h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {skillsData.designSkills.map((skill, index) => (
+              {skillsData.DesignSkills.map((skill, index) => (
                 <SkillCard
                   key={skill.name}
                   skill={skill}
